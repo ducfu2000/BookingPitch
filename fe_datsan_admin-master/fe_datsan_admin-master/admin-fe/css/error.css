@@ -1,0 +1,42 @@
+body {
+    font-family: fantasy;
+}
+
+.error-page {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.error-page-inner {
+    padding: 20px;
+}
+
+.error-page-title {
+    color: #000;
+    font-size: 5rem;
+
+    @media (max-width: $breakpoint-xs) {
+        font-size: 4rem;
+    }
+}
+
+.error-page-desc {
+    color: #e41919;
+    font-size: 2.5rem;
+
+    @media (max-width: $breakpoint-xs) {
+        font-size: 2rem;
+    }
+}
+
+.error-page-content {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: $breakpoint-xs) {
+        font-size: 1rem;
+    }
+}

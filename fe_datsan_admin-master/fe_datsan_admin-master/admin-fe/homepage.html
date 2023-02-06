@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dat san</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+</head>
+
+<body>
+    <div class="d-flex content">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar">
+            <a href="#"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none sidebar-brand">
+                <img src="image/datsan.png" alt="" width="200px">
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto sidebar-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link link-dark" aria-current="page">
+                        Thống kê
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link active">
+                        Hệ thống sân
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        Thông tin cá nhân
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        Khác
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="sidebar-footer">
+                <a class="btn btn-secondary" id="logoutBtn">Đăng xuất</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-12 table-title">
+                <h4>Danh sách các hệ thống sân chờ duyệt</h4>
+            </div>
+            <div id="content">
+                <div class="loading">Loading&#8230;</div>
+            </div>
+
+            <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Chi tiết hệ thống sân</h5>
+                            <p class="hidden-id" id="hidden-id"></p>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                        </div>
+                        <div id="approve-failed"></div>
+                        <form id="approveForm">
+                        <div class="modal-body" id="modal-body">
+                                <div class="row">
+                                    <div class="mb-3 col-5">
+                                        <label for="system-name" class="col-form-label">Tên hệ thống:</label>
+                                        <input type="text" class="form-control" id="system-name" readonly>
+                                    </div>
+                                    <div class="mb-3 col-4">
+                                        <label for="owner-name" class="col-form-label">Chủ sân:</label>
+                                        <input type="text" class="form-control" id="owner-name" readonly>
+                                    </div>
+                                    <div class="mb-3 col-3">
+                                        <label for="pitch-limit" class="col-form-label">Sân con tối đa:</label>
+                                        <input type="text" class="form-control" id="pitch-limit" name="pitch-limit">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3 col-4">
+                                        <label class="col-form-label">Tỉnh/Thành phố:</label>
+                                        <select class="form-select" id="city">
+                                            <option value="Thành phố Hà Nội" selected disabled>Thành phố Hà Nội</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-4">
+                                        <label class="col-form-label">Quận/Huyện:</label>
+                                        <select class="form-select" id="district">
+                                            <option value="" label="" selected>Chọn quận/huyện</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-4">
+                                        <label class="col-form-label">Phường/Xã:</label>
+                                        <select class="form-select" id="ward">
+                                            <option value="" selected>Chọn phường/xã</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3 col-6">
+                                        <label for="address-detail" class="col-form-label">Địa chỉ cụ thể:</label>
+                                        <input type="text" class="form-control" id="address-detail" name="address-detail">
+                                    </div>
+                                    <div class="mb-3 col-3">
+                                        <label for="lat" class="col-form-label">Lat:</label>
+                                        <input type="text" class="form-control" id="lat" name="lat">
+                                    </div>
+                                    <div class="mb-3 col-3">
+                                        <label for="lng" class="col-form-label">Lng:</label>
+                                        <input type="text" class="form-control" id="lng" name="lng">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-primary" id="approveBtn">Duyệt</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/common-api.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+
+</html>
